@@ -9,6 +9,9 @@ export function Home({
 }) {
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState(null);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    alert("Sorry it seems you have no active investments lets change that");
+  };
   const investmentPlans = [{
     months: 3,
     multiplier: 3,
@@ -31,14 +34,14 @@ export function Home({
             Future
           </h1>
           <p className="text-xl mb-8 opacity-80">
-            Join thousands of investors earning passive income through our
+            Join thousands of investors earning real income through our
             secure crypto investment platform
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-3 rounded-lg font-medium inline-flex items-center">
               Start Investing <ArrowRight className="ml-2 w-5 h-5" />
             </button>
-            <button onClick={ NotPaymentModal} className={`${theme === "dark" ? "bg-gray-800" : "bg-white"} px-8 py-3 rounded-lg font-medium inline-flex items-center hover:bg-yellow-500 hover:text-white transition-colors`}>
+            <button onClick={handleClick} className={`${theme === "dark" ? "bg-gray-800" : "bg-white"} px-8 py-3 rounded-lg font-medium inline-flex items-center hover:bg-yellow-500 hover:text-white transition-colors`}>
               View Performance
             </button>
           </div>
