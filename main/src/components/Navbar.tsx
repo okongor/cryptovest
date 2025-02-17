@@ -47,8 +47,9 @@ export function Navbar({ theme, toggleTheme }) {
 
         {/* Right Section: User & Theme Toggle */}
         <div className="flex items-center space-x-4">
-          {isAuthenticated ? (
-            <>
+          {/* Desktop Greeting & Logout */}
+          {isAuthenticated && (
+            <div className="hidden md:flex items-center space-x-4">
               <span className="text-sm opacity-70">Hi, {user?.name}</span>
               <button
                 onClick={logout}
@@ -57,12 +58,16 @@ export function Navbar({ theme, toggleTheme }) {
                 <LogOut className="w-4 h-4" />
                 <span>Logout</span>
               </button>
-            </>
-          ) : (
-            <Link to="/login" className="hover:text-yellow-500 transition-colors">
+            </div>
+          )}
+
+          {!isAuthenticated && (
+            <Link to="/login" className="hidden md:block hover:text-yellow-500 transition-colors">
               Login
             </Link>
           )}
+
+          {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
             className={`p-2 rounded-full ${
@@ -82,7 +87,7 @@ export function Navbar({ theme, toggleTheme }) {
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu (Fixed Theme Issue) */}
+      {/* Mobile Dropdown Menu */}
       {isOpen && (
         <div
           className={`md:hidden absolute top-16 left-0 w-full shadow-md p-4 transition-all duration-300 ${
@@ -104,6 +109,31 @@ export function Navbar({ theme, toggleTheme }) {
                     {link.label}
                   </Link>
                 )
+            )}
+
+            {/* Mobile Greeting & Logout */}
+            {isAuthenticated ? (
+              <div className="mt-4 border-t border-gray-300 pt-3">
+                <span className="block text-sm text-gray-500">Hi, {user?.name}</span>
+                <button
+                  onClick={() => {
+                    logout();
+                    setIsOpen(false);
+                  }}
+                  className="flex items-center space-x-2 mt-2 py-2 px-4 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 w-full text-left"
+                >
+                  <LogOut className="w-4 h-4" />
+                  <span>Logout</span>
+                </button>
+              </div>
+            ) : (
+              <Link
+                to="/login"
+                onClick={() => setIsOpen(false)}
+                className="mt-4 border-t border-gray-300 pt-3 block py-2 px-4 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
+              >
+                Login
+              </Link>
             )}
           </div>
         </div>
