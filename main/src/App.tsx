@@ -11,7 +11,7 @@ import { GeometricBackground } from "./components/GeometricBackground";
 import { AuthProvider } from "./contexts/AuthContext";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 export function App() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
     
