@@ -124,7 +124,7 @@ export function Home({
         </div>
       </section>
       <section className="py-16 px-4">
-        <div className="container mx-auto">
+        <div className="container mx-auto" id="startinvesting">
           <h2 className="text-3xl font-bold text-center mb-4">
             Investment Plans
           </h2>
@@ -132,7 +132,7 @@ export function Home({
             Choose from our bespoke investment plans tailored to meet
             your crypto investment goals
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto" id="startinvesting">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto" >
             {investmentPlans.map(plan => <InvestmentCard key={plan.months} {...plan} theme={theme} onInvest={() => {
             setSelectedPlan(plan);
             setShowPaymentModal(true);
