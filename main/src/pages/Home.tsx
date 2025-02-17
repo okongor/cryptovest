@@ -38,9 +38,11 @@ export function Home({
             secure crypto investment platform
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-3 rounded-lg font-medium inline-flex items-center">
+            <a href="#startinvesting">
+            <button  className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-3 rounded-lg font-medium inline-flex items-center">
               Start Investing <ArrowRight className="ml-2 w-5 h-5" />
             </button>
+            </a>
             <button onClick={handleClick} className={`${theme === "dark" ? "bg-gray-800" : "bg-white"} px-8 py-3 rounded-lg font-medium inline-flex items-center hover:bg-yellow-500 hover:text-white transition-colors`}>
               View Performance
             </button>
@@ -130,7 +132,7 @@ export function Home({
             Choose from our bespoke investment plans tailored to meet
             your crypto investment goals
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto" id="startinvesting">
             {investmentPlans.map(plan => <InvestmentCard key={plan.months} {...plan} theme={theme} onInvest={() => {
             setSelectedPlan(plan);
             setShowPaymentModal(true);
