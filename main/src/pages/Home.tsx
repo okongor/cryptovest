@@ -127,7 +127,7 @@ export function Home({
             Investment Plans
           </h2>
           <p className="text-center mb-12 opacity-70 max-w-2xl mx-auto">
-            Choose from our carefully designed investment plans tailored to meet
+            Choose from our bespoke investment plans tailored to meet
             your crypto investment goals
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
